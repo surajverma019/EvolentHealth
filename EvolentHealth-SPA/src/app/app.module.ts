@@ -8,12 +8,14 @@ import { ContactComponent } from './contact/contact.component';
 import { RouterModule } from '@angular/router';
 
 import { appRoutes } from './routes';
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
       NavComponent,
-      ContactComponent
+      ContactComponent,
+      AddContactComponent
    ],
   imports: [
     BrowserModule,
