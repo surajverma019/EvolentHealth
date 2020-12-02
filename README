@@ -1,1 +1,18 @@
 
+Web application has been built using ASP.NET Core Web API, Entity Framework Core and Angular.
+
+Version Details : Angular(11.0.2) , ASP.NET Core (3.1), Entity Framework (5.0.0)
+
+Entity Framework Approch : Code First Approch
+
+Database Userd : SQL Lite (.db file is present in ASP.NET core project root folder)
+
+Github Link : https://github.com/surajverma019/EvolentHealth
+
+-----------------------------------------------------------------------------------------------
+
+Changes Needed to Make :-
+Angular Project : 
+1) After downloading run "npm install" command in terminal to download all node_modules packages
+2) Changes api base url to you API deployed path which reside in environment.ts file by keyword "apiUrl"
+3) Run "ng build --watch" command to create patch for deployment.
