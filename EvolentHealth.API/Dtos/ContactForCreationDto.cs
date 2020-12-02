@@ -15,13 +15,13 @@ namespace EvolentHealth.API.Dtos
         [Required]
         [StringLength(10, MinimumLength = 10, ErrorMessage = "PhoneNumber should be of 10 digit")]
         public string PhoneNumber { get; set; }
-        public bool Status { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public DateTime ModifiedOn { get; set; }
-        public ContactForCreationDto()
-        {
-            CreatedOn = DateTime.Now;
-            Status = true;
-        }
+        public bool Status { get; set; } = true;
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public DateTime ModifiedOn { get; set; } = DateTime.Now;
+        //public ContactForCreationDto()
+        //{
+        //    CreatedOn = DateTime.Now;
+        //    Status = true;
+        //}
     }
 }

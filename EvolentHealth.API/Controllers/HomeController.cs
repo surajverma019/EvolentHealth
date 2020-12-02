@@ -27,6 +27,7 @@ namespace EvolentHealth.API.Controllers
         public async Task<IActionResult> GetContacts([FromQuery] ContactParams userParams)
         {
             var values = await _repository.GetContacts(userParams);
+            Response.AddPagination(values.CurrentPage, values.PageSize, values.TotalCount, values.TotalPages);
             return Ok(values);
         }
 
@@ -39,11 +40,12 @@ namespace EvolentHealth.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddEditContact([FromForm] ContactForCreationDto contactForCreationDto)
+        public async Task<IActionResult> AddEditContact(ContactForCreationDto contactForCreationDto)
         {
             Contact contact;
             if (contactForCreationDto.Id == 0)
             {
+                //contactForCreationDto.Status = true;
                 contact = _mapper.Map<Contact>(contactForCreationDto);
                 _repository.Add<Contact>(contact);
             }
@@ -54,6 +56,7 @@ namespace EvolentHealth.API.Controllers
                 contact.LastName = contactForCreationDto.LastName;
                 contact.PhoneNumber = contactForCreationDto.PhoneNumber;
                 contact.Email = contactForCreationDto.Email;
+                contact.Status = contactForCreationDto.Status;
                 contact.ModifiedOn = DateTime.Now;
             }
 

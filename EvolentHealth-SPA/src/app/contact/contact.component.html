@@ -1,3 +1,39 @@
 <div class="container mt-5">
-  <p>contact works!</p>
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone Mumber</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.id }}</td>
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phoneNumber }}</td>
+      <td>{{ contact.status ? "Active" : "In-Active" }}</td>
+      <td>
+        <button class="btn btn-primary btn-xs" [routerLink]="['/add/', contact.id]">E</button>
+        <button class="btn btn-primary btn-xs" (click)="deleteContact(contact.id)">D</button>
+      </td>
+    </tr>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [ngModel]="pagination.currentPage"
+      [itemsPerPage]="pagination.itemsPerPage"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      (pageChanged)="pageChanged($event)"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
+    </pagination>
+  </div>
 </div>

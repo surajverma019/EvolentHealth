@@ -1,12 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/contact']">Elovent Health</a>
-  
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/contact']">View Contact</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" [routerLink]="['/add']">Add Contact</a>
       </li>
     </ul>
-    
   </div>
 </nav>
